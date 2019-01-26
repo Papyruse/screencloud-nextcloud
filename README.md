@@ -1,6 +1,6 @@
-# NextCloud
+# ScreenCloud - NextCloud
 
-An NextCloud service plugin for ScreenCloud
+A NextCloud service plugin for ScreenCloud
 
 ## Installation
 
