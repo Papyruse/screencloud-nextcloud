@@ -46,3 +46,7 @@ Plugin settings:
 Images uploaded:
 
 ![screenshot uploaded](https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/Screenshot%20at%2018_14_08.png?raw=true "Images uploaded")
+
+## Info
+
+Forked and customized for NextCloud from https://github.com/Section214/screencloud-owncloud
