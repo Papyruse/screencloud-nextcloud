@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>OwnCloud - Settings</string>
+   <string>NextCloud - Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -146,9 +146,9 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QRadioButton" name="radio_owncloud">
+       <widget class="QRadioButton" name="radio_nextcloud">
         <property name="text">
-         <string>Copy OwnCloud link</string>
+         <string>Copy NextCloud link</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -189,7 +189,7 @@
   <tabstop>input_url</tabstop>
   <tabstop>input_username</tabstop>
   <tabstop>input_password</tabstop>
-  <tabstop>radio_owncloud</tabstop>
+  <tabstop>radio_nextcloud</tabstop>
   <tabstop>radio_directlink</tabstop>
   <tabstop>radio_dontcopy</tabstop>
   <tabstop>buttonBox</tabstop>
