@@ -10,3 +10,6 @@ An NextCloud service plugin for ScreenCloud
 ```
 https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
 ```
+# Screenshots
+
+![screenshot](https://nextcloud.tmiland.com/s/9NxEMjYQJjFCPNt)
