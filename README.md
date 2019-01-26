@@ -19,3 +19,7 @@ Plugin installed:
 Plugin settings:
 
 ![screenshot settings](https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/Screenshot%20at%2018_06_39.png?raw=true "Plugin settings")
+
+Images uploaded:
+
+![screenshot uploaded](https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/Screenshot%20at%2018_14_08.png?raw=true "Images uploaded")
