@@ -12,4 +12,5 @@ https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
 ```
 # Screenshots
 
-![screenshot](https://nextcloud.tmiland.com/s/9NxEMjYQJjFCPNt)
+Plugin installed:
+![screenshot](https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/Screenshot%20at%2017_56_41.png?raw=true "Plugin installed")
