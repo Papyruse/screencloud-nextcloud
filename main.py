@@ -2,10 +2,10 @@ import ScreenCloud
 from PythonQt.QtCore import QFile, QSettings, QUrl
 from PythonQt.QtGui import QWidget, QDialog, QDesktopServices, QMessageBox
 from PythonQt.QtUiTools import QUiLoader
-import owncloud, time, os, requests
+import nextcloud, time, os, requests
 from rfc3987 import match
 
-class OwnCloudUploader():
+class NextCloudUploader():
     def __init__(self):
         self.uil = QUiLoader()
         self.loadSettings()
@@ -40,7 +40,7 @@ class OwnCloudUploader():
     def loadSettings(self):
         settings = QSettings()
         settings.beginGroup("uploaders")
-        settings.beginGroup("owncloud")
+        settings.beginGroup("nextcloud")
         self.url = settings.value("url", "")
         self.username = settings.value("username", "")
         self.password = settings.value("password", "")
@@ -55,7 +55,7 @@ class OwnCloudUploader():
     def saveSettings(self):
         settings = QSettings()
         settings.beginGroup("uploaders")
-        settings.beginGroup("owncloud")
+        settings.beginGroup("nextcloud")
         settings.setValue("url", self.settingsDialog.group_account.input_url.text)
         settings.setValue("username", self.settingsDialog.group_account.input_username.text)
         settings.setValue("password", self.settingsDialog.group_account.input_password.text)
@@ -87,13 +87,13 @@ class OwnCloudUploader():
                     request = requests.get(self.url, timeout=3);
 
                     if request.status_code == 200:
-                        oc = owncloud.Client(self.url)
+                        oc = nextcloud.Client(self.url)
                         oc.login(self.username, self.password)
                         self.connectStatus = "true"
                         self.saveSettings()
                         self.updateUi()
                 except requests.exceptions.RequestException as e:
-                    QMessageBox.critical(self.settingsDialog, "OwnCloud Connection Error", "The specified Server URL is invalid!")
+                    QMessageBox.critical(self.settingsDialog, "NextCloud Connection Error", "The specified Server URL is invalid!")
                     settings = QSettings()
                     settings.remove("connect-status")
                     self.saveSettings()
@@ -104,9 +104,9 @@ class OwnCloudUploader():
                     if errorMessage == "401":
                         self.settingsDialog.group_connection.widget_status.label_status.setText("Invalid")
                     else:
-                        QMessageBox.critical(self.settingsDialog, "OwnCloud Connection Error", errorMessage)
+                        QMessageBox.critical(self.settingsDialog, "NextCloud Connection Error", errorMessage)
             else:
-                QMessageBox.critical(self.settingsDialog, "OwnCloud Connection Error", "The specified Server URL is invalid!")
+                QMessageBox.critical(self.settingsDialog, "NextCloud Connection Error", "The specified Server URL is invalid!")
         else:
             missingFields = ""
             fieldText = "field"
@@ -128,7 +128,7 @@ class OwnCloudUploader():
                     missingFields = missingFields.replace(" and", ",") + " and \"Password\""
                     fieldText = "fields"
 
-            QMessageBox.critical(self.settingsDialog, "OwnCloud Connection Error", "The " + missingFields + " " + fieldText + " must be filled in!")
+            QMessageBox.critical(self.settingsDialog, "NextCloud Connection Error", "The " + missingFields + " " + fieldText + " must be filled in!")
 
     def upload(self, screenshot, name):
         self.loadSettings()
@@ -143,7 +143,7 @@ class OwnCloudUploader():
         screenshot.save(QFile(tmpFilename), ScreenCloud.getScreenshotFormat())
 
         try:
-            oc = owncloud.Client(self.url)
+            oc = nextcloud.Client(self.url)
             oc.login(self.username, self.password)
 
             remotePath = ""
@@ -168,7 +168,7 @@ class OwnCloudUploader():
                 ScreenCloud.setUrl(share_link)
             return True
         except Exception as e:
-            ScreenCloud.setError("Failed to upload to OwnCloud. " + e.message)
+            ScreenCloud.setError("Failed to upload to NextCloud. " + e.message)
             return False
 
     def nameFormatEdited(self, nameFormat):
@@ -176,10 +176,10 @@ class OwnCloudUploader():
 
     def formatConnectionError(self, e):
         return {
-            "HTTP error: 400": "OwnCloud was unable to process the request due to a client error!",
+            "HTTP error: 400": "NextCloud was unable to process the request due to a client error!",
             "HTTP error: 401": "401",
             "HTTP error: 403": "The specified user is not permitted to access the API!",
             "HTTP error: 404": "The specified Server URL is invalid!",
-            "HTTP error: 500": "OwnCloud was unable to process the request due to a server error!",
+            "HTTP error: 500": "NextCloud was unable to process the request due to a server error!",
             "HTTP error: 502": "The specified Server URL appears to be offline!"
         }.get(e, e.replace("/ocs/v1.php/cloud/capabilities", ""))
