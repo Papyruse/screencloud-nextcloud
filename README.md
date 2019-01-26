@@ -10,6 +10,29 @@ A NextCloud service plugin for ScreenCloud
 ```
 https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
 ```
+Tested and working with ScreenCloud 1.3.0 from Debian 9.0 repo on Ubuntu 18.10.
+
+To install ScreenCloud from this repo, do;
+
+Add the Screencloud repo:
+
+`sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/olav-st/Debian_9.0/ /' >> /etc/apt/sources.list.d/screencloud.list"`
+
+Update your software sources and install Screencloud’s Ubuntu app:
+
+`sudo apt-get update && sudo apt-get install screencloud`
+
+Download the repo key:
+
+`cd /tmp`
+`wget http://download.opensuse.org/repositories/home:olav-st/Debian_9.0/Release.key`
+
+Add the repo key:
+
+`sudo apt-key add - < Release.key`
+
+Guide source: https://www.omgubuntu.co.uk/2016/06/force-install-screencloud-ubuntu-16-04
+
 # Screenshots
 
 Plugin installed:
