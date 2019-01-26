@@ -1,6 +1,6 @@
-# OwnCloud
+# NextCloud
 
-An OwnCloud service plugin for ScreenCloud
+An NextCloud service plugin for ScreenCloud
 
 ## Installation
 
@@ -8,5 +8,5 @@ An OwnCloud service plugin for ScreenCloud
 * Select `Install from URL` and enter the following address:
 
 ```
-https://github.com/Section214/screencloud-owncloud/archive/master.zip
+https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
 ```
