@@ -10,7 +10,7 @@ A NextCloud service plugin for ScreenCloud
 ```
 https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
 ```
-Tested and working with ScreenCloud 1.3.0 from Debian 9.0 repo on Ubuntu 18.10.
+Tested and working with Nextcloud 15.0.2, ScreenCloud 1.3.0 from Debian 9.0 repo on Ubuntu 18.10.
 
 To install ScreenCloud from this repo, do;
 
