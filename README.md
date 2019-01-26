@@ -20,7 +20,7 @@ Add the Screencloud repo:
 
 `sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/olav-st/Debian_9.0/ /' >> /etc/apt/sources.list.d/screencloud.list"`
 
-Update your software sources and install Screencloud’s Ubuntu app:
+Update your software sources and install Screencloud’s Debian app:
 
 `sudo apt-get update && sudo apt-get install screencloud`
 
