@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+  <plugin>
+    <name>ScreenCloud - NextCloud</name>
+    <shortname>nextcloud</shortname>
+    <description>A NextCloud service plugin for ScreenCloud</description>
+    <author>tmiland</author>
+    <version>1.0.0</version>
+    <category>online</category>
+    <icon>https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/icon.png</icon>
+    <weblink>https://github.com/tmiland/screencloud-nextcloud</weblink>
+    <download>https://github.com/tmiland/screencloud-nextcloud/archive/master.zip</download>
+  </plugin>
+</plugins>
