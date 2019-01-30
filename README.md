@@ -7,12 +7,12 @@ A NextCloud service plugin for ScreenCloud
 * Go to: **Preferences** -> **Online Services** -> **More services**
 * Select: **Install from URL** and paste the following address:
 
-`https://github.com/tmiland/screencloud-nextcloud/archive/master.zip`
+```https://github.com/tmiland/screencloud-nextcloud/archive/master.zip```
 
 * Or go to: **Preferences** -> **Online Services** -> **More Services**
 * Select: **Mirror: Other** and paste the following address:
 
-`https://github.com/tmiland/screencloud-nextcloud/raw/master/plugin-list.xml`
+```https://github.com/tmiland/screencloud-nextcloud/raw/master/plugin-list.xml```
 
 Tested and working with Nextcloud 15.0.2, ScreenCloud 1.3.0 from Debian 9.0 repo on Ubuntu 18.10.
 
