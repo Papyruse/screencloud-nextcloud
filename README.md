@@ -22,7 +22,7 @@ Tested and working with Nextcloud 15.0.2, ScreenCloud 1.3.0 from Debian 9.0 repo
 
 PS: In "Server URL" use "https://nextcloud.domain.com", not the WebDAV url.
 
-To install ScreenCloud from this repo, do;
+To install ScreenCloud from Debian 9.0 repo:
 
 Add the Screencloud repo:
 
