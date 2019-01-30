@@ -1,8 +1,8 @@
 # ScreenCloud - NextCloud
 
-## A NextCloud service plugin for ScreenCloud
+A NextCloud service plugin for ScreenCloud
 
-###### Installation
+## Installation
 
 * Go to: **Preferences** -> **Online Services** -> **More services**
 * Select: **Install from URL** and paste the following address:
@@ -53,7 +53,7 @@ sudo apt-key add - < Release.key
 
 Guide source: https://www.omgubuntu.co.uk/2016/06/force-install-screencloud-ubuntu-16-04
 
-###### Screenshots
+# Screenshots
 
 Plugin installed:
 
@@ -67,6 +67,6 @@ Images uploaded:
 
 ![screenshot uploaded](https://raw.githubusercontent.com/tmiland/screencloud-nextcloud/master/Screenshot%20at%2018_14_08.png?raw=true "Images uploaded")
 
-###### Info
+## Info
 
 Forked and customized for NextCloud from https://github.com/Section214/screencloud-owncloud
