@@ -4,12 +4,16 @@ A NextCloud service plugin for ScreenCloud
 
 ## Installation
 
-* Go to `Preferences` -> `Online Services` -> `More services`
-* Select `Install from URL` and enter the following address:
+* Go to: `Preferences` -> `Online Services` -> `More services`
+* Select: `Install from URL` and enter the following address:
 
-```
-https://github.com/tmiland/screencloud-nextcloud/archive/master.zip
-```
+[https://github.com/tmiland/screencloud-nextcloud/archive/master.zip](https://github.com/tmiland/screencloud-nextcloud/archive/master.zip)
+
+* Or go to: `Preferences` -> `Online Services` -> `More Services`
+* Select: `Mirror: Other` and enter the following address:
+
+[plugin-list.xml](https://github.com/tmiland/screencloud-nextcloud/raw/master/plugin-list.xml)
+
 Tested and working with Nextcloud 15.0.2, ScreenCloud 1.3.0 from Debian 9.0 repo on Ubuntu 18.10.
 
 PS: In "Server URL" use "https://nextcloud.domain.com", not the WebDAV url.
