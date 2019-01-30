@@ -26,20 +26,30 @@ To install ScreenCloud from this repo, do;
 
 Add the Screencloud repo:
 
-`sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/olav-st/Debian_9.0/ /' >> /etc/apt/sources.list.d/screencloud.list"`
+```
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/olav-st/Debian_9.0/ /' >> /etc/apt/sources.list.d/screencloud.list"
+```
 
 Update your software sources and install Screencloud’s Debian app:
 
-`sudo apt-get update && sudo apt-get install screencloud`
+```
+sudo apt-get update && sudo apt-get install screencloud
+```
 
 Download the repo key:
 
-`cd /tmp`
-`wget http://download.opensuse.org/repositories/home:olav-st/Debian_9.0/Release.key`
+```
+cd /tmp
+```
+```
+wget http://download.opensuse.org/repositories/home:olav-st/Debian_9.0/Release.key
+```
 
 Add the repo key:
 
-`sudo apt-key add - < Release.key`
+```
+sudo apt-key add - < Release.key
+```
 
 Guide source: https://www.omgubuntu.co.uk/2016/06/force-install-screencloud-ubuntu-16-04
 
