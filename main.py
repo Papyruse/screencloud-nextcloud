@@ -4,6 +4,12 @@ from PythonQt.QtGui import QWidget, QDialog, QDesktopServices, QMessageBox
 from PythonQt.QtUiTools import QUiLoader
 import nextcloud, time, os, requests
 from rfc3987 import match
+import urllib
+
+def randomString(stringLength=10):
+    """Generate a random string of fixed length """
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(stringLength))
 
 class NextCloudUploader():
     def __init__(self):
@@ -31,8 +37,10 @@ class NextCloudUploader():
         self.settingsDialog.group_account.input_username.text = self.username
         self.settingsDialog.group_account.input_password.text = self.password
         self.settingsDialog.group_name.input_path.text = self.remotePath
+        self.settingsDialog.group_name.input_publicpath.text = self.publicPath
         self.settingsDialog.group_name.input_name.text = self.nameFormat
         self.settingsDialog.group_clipboard.radio_dontcopy.setChecked(not self.copyLink)
+        self.settingsDialog.group_clipboard.radio_publiclink.setChecked(self.copyPublicLink)
         self.settingsDialog.group_clipboard.radio_directlink.setChecked(self.copyDirectLink)
         self.updateUi()
         self.settingsDialog.open()
@@ -45,9 +53,11 @@ class NextCloudUploader():
         self.username = settings.value("username", "")
         self.password = settings.value("password", "")
         self.remotePath = settings.value("remote-path", "")
+        self.publicPath = settings.value("public-path", "")
         self.connectStatus = settings.value("connect-status", "")
-        self.nameFormat = settings.value("name-format", "Screenshot at %H:%M:%S")
+        self.nameFormat = settings.value("name-format", "snap_%y%m%d_%H%M%S_{rnd_s}")
         self.copyLink = settings.value("copy-link", "true") in ['true', True]
+        self.copyPublicLink = settings.value("copy-public-link", "false") in ['true', True]
         self.copyDirectLink = settings.value("copy-direct-link", "false") in ['true', True]
         settings.endGroup()
         settings.endGroup()
@@ -60,9 +70,11 @@ class NextCloudUploader():
         settings.setValue("username", self.settingsDialog.group_account.input_username.text)
         settings.setValue("password", self.settingsDialog.group_account.input_password.text)
         settings.setValue("remote-path", self.settingsDialog.group_name.input_path.text)
+        settings.setValue("public-path", self.settingsDialog.group_name.input_publicpath.text)
         settings.setValue("connect-status", self.connectStatus)
         settings.setValue("name-format", self.settingsDialog.group_name.input_name.text)
         settings.setValue("copy-link", not self.settingsDialog.group_clipboard.radio_dontcopy.checked)
+        settings.setValue("copy-public-link", self.settingsDialog.group_clipboard.radio_publiclink.checked)
         settings.setValue("copy-direct-link", self.settingsDialog.group_clipboard.radio_directlink.checked)
         settings.endGroup()
         settings.endGroup()
@@ -147,6 +159,7 @@ class NextCloudUploader():
             oc.login(self.username, self.password)
 
             remotePath = ""
+            publicPath = ""
 
             if self.remotePath:
                 remotePath = self.remotePath
@@ -156,11 +169,17 @@ class NextCloudUploader():
                 except Exception:
                     oc.mkdir(remotePath)
 
+            if self.publicPath:
+                publicPath = self.publicPath
+
             uploaded_image = oc.put_file(remotePath + "/" + ScreenCloud.formatFilename(name, False), tmpFilename)
 
             if self.copyLink:
                 link_info = oc.share_file_with_link(remotePath + "/" + ScreenCloud.formatFilename(name, False))
                 share_link = link_info.get_link()
+
+                if self.copyPublicLink:
+                    share_link = publicPath + "/" + urllib.quote(ScreenCloud.formatFilename(name, False))
 
                 if self.copyDirectLink:
                     share_link = share_link + "/download"
